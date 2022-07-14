@@ -1,0 +1,67 @@
+plugins:
+  snow-itom:
+    executor: central_deployment_agent
+    package_name: cloudify-servicenow-itom-plugin
+    package_version: '0.1'
+
+workflows:
+  trigger_ccg_scan:
+    mapping: snow-itom.cloudify_snow_itom.workflows.trigger_ccg_scan
+    parameters:
+      deployment_id:
+        type: string
+        description: |
+          deployment id to get resources ids to scan for if possible.
+      snow_host:
+        type: string
+        description: |
+          servicenow host ip to connect to.
+      snow_username:
+        type: string
+        description: |
+          servicenow host username to use for authentication.
+      snow_password:
+        type: string
+        description: |
+          servicenow host password to use for authentication.
+      service_account_ids:
+        type: dict
+        description: |
+          a dict of service account ids to use inside the scan configurations,
+          would be in this format:
+            AWS : {aws_account_id}
+            AZURE : {azure_account_id}
+      policy_sets:
+        type: dict
+        description: |
+          a dict of types and a list of policy sets to use inside the scan configuration when node type matches the type,
+          would be in this format:
+            AWSVM: [....]
+            AZUREVM: [...]
+
+  trigger_itom_discovery:
+    mapping: snow-itom.cloudify_snow_itom.workflows.trigger_itom_discovery
+    parameters:
+      deployment_id:
+        type: string
+        description: |
+          deployment id to get resources ids to scan for if possible.
+      snow_host:
+        type: string
+        description: |
+          servicenow host ip to connect to.
+      snow_username:
+        type: string
+        description: |
+          servicenow host username to use for authentication.
+      snow_password:
+        type: string
+        description: |
+          servicenow host password to use for authentication.
+      service_account_ids:
+        type: dict
+        description: |
+          a dict of service account ids to use inside the scan configurations,
+          would be in this format:
+            AWS : {aws_account_id}
+            AZURE : {azure_account_id}
