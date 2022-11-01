@@ -4,6 +4,16 @@ CCG_API_PATTERN = \
 DISCOVREY_API_PATTERN = \
     'https://{host}/api/x_clop2_cloudify/cloud_resource_discovery/{method}'
 
+CLOUDIFY_ACTIONS_API_PATTERN = \
+    'https://{host}/api/x_clop2_cloudify/cloudify_actions/{method}'
+
+DISCOVERY_RESULT_PATTERN = \
+    'https://{host}/nav_to.do?uri=discovery_status.do?sys_id={record_id}'
+
+CCG_SCAN_RESULT_PATTERN = \
+    'https://{host}/nav_to.do?uri=sn_itom_ccg_audit_result_list.do?' + \
+    'sysparm_query=scan_run%3D{record_id}'
+
 TABLE_API_PATTEN = \
     'https://{host}/api/now/table/{tableName}'
 
